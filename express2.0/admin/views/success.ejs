@@ -1,0 +1,22 @@
+
+    <script type="text/javascript">
+        function countDown(secs,surl){
+            var jumpTo = document.getElementById('jumpTo');
+            jumpTo.innerHTML=secs;
+            if(--secs>0){
+                setTimeout("countDown("+secs+",'"+surl+"')",1000);
+            }
+            else{
+                location.href=surl;
+                -ma
+            }
+        }
+    </script>
+    <h3><%=title%></h3>
+    <style>
+        font-family:"微软雅黑";
+    </style>
+<a href="/list"><span id="jumpTo">3</span>秒后系统会自动跳转，也可点击本处直接跳</a>
+<script type="text/javascript">
+    countDown(3,'/list');
+</script>

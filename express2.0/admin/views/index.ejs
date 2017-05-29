@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>后台管理系统</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <style>
+    h2{
+      color: #f60;
+      display: inline-block;
+    }
+    .right{
+      margin:10px auto;
+      border: 1px solid #ccc;
+    }
+    .box{
+      width: 25px;
+      height: 25px;
+      background: #67CF22;
+      display: inline-block;
+      animation: aa 1.5s ease-out infinite;
+    }
+    @keyframes aa{
+    0{transform: perspective(70px) rotateX(0) rotateY(0);}
+    50%{transform: perspective(70px) rotateX(180deg) rotateY(0);}
+    100%{transform: perspective(70px) rotateX(180deg) rotateY(180deg);}
+  </style>
+</head>
+<body>
+<h2 >后台管理系统</h2>
+<div class="box"></div>
+<div class="left">
+  <ul>
+    <li>
+      <a href="/list" target="myFrame">商品列表</a>
+    </li>
+    <li>
+      <a href="/add" target="myFrame">add</a>
+    </li>
+  </ul>
+</div>
+<div class="right">
+  <iframe width="95%" height="680px" name="myFrame" frameborder="0"></iframe>
+</div>
+</body>
+</html>

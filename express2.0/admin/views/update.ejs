@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>update</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("a.link").on("click",function(){
+              $.post($(this).attr('href'),null,function(result){
+                  alert(result);
+              });
+              //屏蔽A标签原始提交
+//                return false;
+          });
+
+      });
+  </script>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+      setInterval(function () {
+          var time=new Date().toLocaleTimeString();
+          $(function () {
+              $('.time').html(time)
+          })
+      },1000);
+  </script>
+  <style>
+  </style>
+  <style>
+    ul li{
+      list-style: none;
+    }
+    ul li:hover{
+      color:blue;
+    }
+    span{
+      margin-top:10px;
+    }
+    .box{margin-left: 20px;}
+    .box p{
+     width: 100px;
+      display: inline-block;
+      text-align: center;
+    }
+    form{
+      border: 1px solid #ccc;
+      padding: 5px;
+      box-shadow: 5px 5px 5px #ccc;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 class="text-success text-center">后台管理系统</h3>
+      <span class="pull-right time"></span>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">订单详细信息</h3>
+        </div>
+        <div class="panel-body">
+             <ul>
+           <%docs.forEach(function (i) {%>
+             <li> 订单编号：<%=i._id%></li>
+             <li> 订单日期：<%=i.signAt%></li>
+             <li> 上次修改：<%=i.lastModify%></li>
+             <li> 商品编号：<%=i.brandCode%></li>
+             <li> 商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标：<%=i.brand%></li>
+           </ul>
+             <form action="/modify" method="post">
+               <input type="hidden" name="_id" value="<%=i._id%>">
+               <div class="box">
+                 <p class="left">数量</p>
+                 <input type="text" name="number" value="<%=i.number%>">
+               </div>
+               <div class="box">
+                 <p class="left">单价：</p>
+                 <input type="text" name="price" value="<%=i.price%>">
+               </div>
+               <div class="box">
+                 <p class="left">总金额：</p>
+                 <input type="text" name="shouldPay" value="<%=parseInt(i.number)*i.price%>元">
+               </div>
+               <div class="box">
+                 <p class="left"> 实付金额：</p>
+                 <input type="text" name="alreadyPay" value="<%=i.alreadyPay%>元">
+               </div>
+               <div class="box">
+                 <p class="left">未付金额：</p>
+                 <input type="text"  value="<%=parseInt(i.number)*i.price-i.alreadyPay%>元">
+               </div>
+               <div class="box">
+                 <p class="left">负责人：</p>
+                 <input type="text" name="person" value="<%=i.person%>">
+               </div>
+               <p style="text-indent: 36px;">客户留言:</p>
+               <div style="margin-left: 120px;margin-top: -10px;">
+                 <textarea name="clientDescription" id="" cols="40" rows="4"><%=i.clientDescription%></textarea>
+               </div>
+               <input type="submit" value="确认修改" class="pull-right" style="position: relative;right: 20px;bottom: 26px;">
+             </form>
+          <%})%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

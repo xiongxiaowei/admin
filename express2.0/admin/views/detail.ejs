@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>update</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("a.link").on("click",function(){
+              $.post($(this).attr('href'),null,function(result){
+                  alert(result);
+              });
+              //屏蔽A标签原始提交
+//                return false;
+          });
+
+      });
+  </script>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+      setInterval(function () {
+          var time=new Date().toLocaleTimeString();
+          $(function () {
+              $('span').html(time)
+          })
+      },1000);
+  </script>
+  <style>
+  </style>
+  <style>
+    h1{
+      color: #f60;
+    }
+    ul li{
+      list-style: none;
+    }
+    ul li:hover{
+      color:blue;
+    }
+    span{
+      margin-top:10px;
+    }
+    a{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 class="text-success text-center">后台管理系统</h3>
+      <span class="pull-right"></span>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">订单详细信息</h3>
+        </div>
+        <div class="panel-body">
+           <ul>
+           <%docs.forEach(function (i) {%>
+             <li> 订单编号：<%=i._id%></li>
+             <li> 订单日期：<%=i.signAt%></li>
+             <li> 上次修改：<%=i.lastModify%></li>
+             <li> 商品编号：<%=i.brandCode%></li>
+             <li> 商标：<%=i.brand%></li>
+             <li> 数量：<%=i.number%></li>
+             <li> 单价：<%=i.price%></li>
+             <li> 总金额：<%=parseInt(i.number)*i.price%>元</li>
+             <li> 实付金额：<%=i.alreadyPay%>元</li>
+             <li style="color:red;"> 未付金额：<%=parseInt(i.number)*i.price-i.alreadyPay%>元</li>
+             <li> 负责人：<%=i.person%></li>
+             <li> 负责人email：<%=i.email%></li>
+             <li> 客户留言：<%=i.clientDescription%></li>
+             <li class="pull-right" ><button><a  href="/update?id=<%=i._id%>" >修改</a></button><button>
+                 <a class='link' href="/remove?id=<%=i._id%>" style="color:red;" id="bt" >删除</a></button></li>
+               <%})%>
+
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
