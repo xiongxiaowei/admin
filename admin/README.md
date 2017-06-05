@@ -70,20 +70,21 @@
 ```
 
 6. 启动(本地需要安装mongodb)
--  `npm run start`
+-  `npm run dev`
 
 7. 后续我会用angular.js和vue.js重写这个项目
 设计思路分析：
       -  1.用node.js搭建服务器
       -  2.设计接口
-             - `api/add`
-             - `api/remove`
-             - `api/remove/:id`
-             - `api/update/:id`
-             - `api/find`
-             - `api/find/:id`
-             - `api/find/:page`
-             - `api/pages`
+             -   `api/add`        增加一条记录
+             -   `api/remove`     删除所有
+             -   `api/remove/:id` 删除一条
+             -   `api/update/:id` 更新一条
+             -   `api/find`       查询所有
+             -   `api/find/:id`   查询一条
+             -   `api/find/:page` 查询某页
+             -   `api/pages`      返回总页数
+             
 
       -  3.用angular.js或者vue.js获取接口数据（由于前后端分离，这里可能存在端口冲突的问题，需要配置一下）然后渲染前端 
       为了达到更好的用户体验，我会用rxjs处理模糊查询     
