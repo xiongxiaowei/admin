@@ -6,8 +6,24 @@
 - `body-parse` 获取参数
 - ejs 模板
 
-### 一些技术难关
-1. 主键查询
+### 一些技术
+1. 字段设置
+```
+ var docs={
+        brandCode:req.body.brandCode,
+        brand:req.body.brand,
+        number:req.body.number,
+        price:req.body.price,
+        shouldPay:parseInt(req.body.number)*req.body.price,
+        alreadyPay:req.body.alreadyPay,
+        person:req.body.person,
+        email:req.body.email,
+        clientDescription:req.body.clientDescription,
+        signAt:new Date().getTime()
+    };
+```
+
+2. 主键查询
 
 ```
     var ObjectID = mongo.ObjectID;
@@ -19,19 +35,19 @@
     })
 ```    
     
-2. moment处理时间戳
+3. moment处理时间戳
 ```
       docs.forEach(function(i){
           i.signAt=moment( i.signAt).format('YYYY-MM-DD HH:mm:ss');
        }) 
 ```
 
-3.  分页和排序
+4.  分页和排序
   怎么拿到页数？
     -  先拿到数据库count总数，随便查一下，拿到数据docs遍历即可拿到count `page页数=Math.ceil(count/每页想要显示的数据数)`
     -  排序  `collection.find({},{sort:{signAt:-1},limit:6,skip:6*(page-1)}).toArray(function（err,docs）{}) `
 
-4. 倒计时
+5. 倒计时
 
 ```
      <script type="text/javascript">
@@ -53,10 +69,10 @@
     </script>  
 ```
 
-5. 启动(本地需要安装mongodb)
+6. 启动(本地需要安装mongodb)
 -  `npm run start`
 
-6. 后续我会用angular.js和vue.js重写这个项目
+7. 后续我会用angular.js和vue.js重写这个项目
 设计思路分析：
       -  1.用node.js搭建服务器
       -  2.设计接口
