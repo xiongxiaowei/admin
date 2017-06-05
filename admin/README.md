@@ -80,7 +80,7 @@ npm run dev
 ### 后续我会用angular.js和vue.js重写这个项目,设计思路分析：
 1.  用node.js搭建服务器
 1.  设计接口
-       <table border="1" cellpadding="0" cellspacing="0" width="500">
+       <table border="1" cellpadding="0" cellspacing="0" >
       <thead>
         <tr>
           <th>接口</th>
