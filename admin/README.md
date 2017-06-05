@@ -1,5 +1,6 @@
 ### 项目整体架构分析
-- `express` 做后台框架
+- `node.js` 做后台框架
+- `express` 做接口设计
 - `bootstrap` 做页面渲染
 - `moment` 处理时间时间戳 语法：`moment(时间戳).format('YYYY-MM-DD HH:mm:ss');`
 - `body-parse` 获取参数
