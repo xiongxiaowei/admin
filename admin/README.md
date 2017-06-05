@@ -77,15 +77,15 @@
 
 7. 后续我会用angular.js和vue.js重写这个项目
 ##### 设计思路分析：
-      -  1.用node.js搭建服务器
-      -  2.设计接口
-           -  `api/add`        增加一条记录
-           -  `api/remove`     删除所有记录
-           -  `api/remove/:id` 删除一条记录
-           -  `api/update/:id` 更新一条记录
-           -  `api/find`       查询所有记录
-           -  `api/find/:id`   查询一条记录
-           -  `api/find/:page` 返回某页记录
-           -  `api/pages`      返回总页数
-      -  3.用angular.js或者vue.js获取接口数据（由于前后端分离，这里可能存在端口冲突的问题，需要配置一下）然后渲染前端
-      为了达到更好的用户体验，我会用rxjs处理模糊查询     
+    -  1.用node.js搭建服务器
+    -  2.设计接口
+         -  `api/add`        增加一条记录,接受当前字段信息
+         -  `api/remove`     删除所有记录
+         -  `api/remove/:id` 删除一条记录，接受当前id:string
+         -  `api/update/:id` 更新一条记录，接受当前id:string
+         -  `api/find`       查询所有记录
+         -  `api/find/:id`   查询一条记录，接受当前id:string
+         -  `api/find/:page` 返回某页记录，接受page:number
+         -  `api/pages`      返回总页数
+    -  3.用angular.js或者vue.js获取接口数据（由于前后端分离，这里可能存在端口冲突的问题，需要配置一下）然后渲染前端
+    为了达到更好的用户体验，我会用rxjs处理模糊查询     
