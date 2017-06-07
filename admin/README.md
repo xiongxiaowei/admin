@@ -79,57 +79,13 @@ npm run dev
 
 ### 后续我会用angular.js和vue.js重写这个项目,设计思路分析：
 1.  用node.js搭建服务器
-1.  设计接口
-       <table border="1" cellpadding="0" cellspacing="0" >
-      <thead>
-        <tr>
-          <th>接口</th>
-          <th>功能</th>
-          <th>接收参数和返回值</th>   
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>api/remove</td>
-          <td>清空数据库</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>api/add</td>
-          <td>增加一条记录</td>
-          <td>接受当前设置的字段信息</td>
-        </tr>
-        <tr>
-          <td>api/remove/:id</td>
-          <td>删除一条记录</td>
-          <td>接收当前id:string</td>
-        </tr>
-        <tr>
-          <td>api/update/:id</td>
-          <td>更新一条记录</td>
-          <td>接收当前id:string</td>
-        </tr>
-        <tr>
-          <td>api/find</td>
-          <td>查询所有记录</td>
-          <td>返回res.data:Array</td>
-        </tr>
-        <tr>
-          <td>api/find/:id</td>
-          <td>查询一条记录</td>
-          <td>接受当前id:string,返回res.data:object</td>
-        </tr>
-        <tr>
-          <td>api/find/:page</td>
-          <td>接收page:number</td>
-          <td>返回某页记录res.data:Array</td>
-        </tr>
-        <tr>
-          <td>api/find/pages</td>
-          <td>查询总页数</td>
-          <td>返回pages:number</td>
-        </tr>
-      </tbody>
+1.  API设计，[链接]()
 1.  用angular.js或者vue.js获取接口数据（由于前后端分离，这里可能存在端口冲突的问题，需要配置一下）然后渲染前端
+
 为了达到更好的用户体验，我会用rxjs处理模糊查询  
+
 1.  [项目更新出现了小问题](https://coding.net/u/judy201654321/p/blog/git/blob/master/files/%E5%95%86%E5%93%81%E5%BD%95%E5%85%A5%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0.md)
+
+### node.js改造MYSQL API
+- [mysql api](http://htmlpreview.github.io/?https://github.com/xiongxiaowei/NOTES/blob/master/index.html)
+- 服务器代码[server.js](http://git.oschina.net/judy201654321/mysql/blob/master/MYSQL%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/server.js?dir=0&filepath=MYSQL%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%2Fserver.js&oid=d36e309a0d542c3cf8a009d8e9f6f330a18828de&sha=c26221be858df69ce8da4690e0c579ed50fb7ff0)
