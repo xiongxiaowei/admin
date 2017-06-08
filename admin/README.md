@@ -89,3 +89,5 @@ npm run dev
 ### node.js改造MYSQL API
 - [mysql api](http://htmlpreview.github.io/?https://github.com/xiongxiaowei/NOTES/blob/master/index.html)
 - 服务器代码[server.js](http://git.oschina.net/judy201654321/mysql/blob/master/MYSQL%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/server.js?dir=0&filepath=MYSQL%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%2Fserver.js&oid=d36e309a0d542c3cf8a009d8e9f6f330a18828de&sha=c26221be858df69ce8da4690e0c579ed50fb7ff0)
+
+### [ANGULAR重写雏形](https://github.com/xiongxiaowei/admin-angular-)
